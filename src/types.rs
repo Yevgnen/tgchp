@@ -1,5 +1,8 @@
+use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
+
+use crate::utils::naive_date_time_from_str;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -70,7 +73,8 @@ pub enum Text {
 #[skip_serializing_none]
 pub struct ServiceMessage {
     pub id: i64,
-    pub date: String,
+    #[serde(deserialize_with = "naive_date_time_from_str")]
+    pub date: NaiveDateTime,
     pub date_unixtime: String,
     pub actor: Option<String>,
     pub actor_id: String,
@@ -122,7 +126,8 @@ pub enum MessageText {
 #[skip_serializing_none]
 pub struct Message {
     pub id: i64,
-    pub date: String,
+    #[serde(deserialize_with = "naive_date_time_from_str")]
+    pub date: NaiveDateTime,
     pub date_unixtime: String,
     pub edited: Option<String>,
     pub edited_unixtime: Option<String>,
