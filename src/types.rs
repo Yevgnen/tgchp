@@ -9,9 +9,34 @@ pub enum MessageType {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum TextObjectType {
+    BankCard,
+    Blockquote,
+    Bold,
+    BotCommand,
+    Cashtag,
+    Code,
+    CustomEmoji,
+    Email,
+    Hashtag,
+    Italic,
+    Link,
+    Mention,
+    MentionName,
+    Phone,
+    Plain,
+    Pre,
+    Spoiler,
+    Strikethrough,
+    TextLink,
+    Underline,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TextObject {
     pub text: String,
-    pub r#type: String,
+    pub r#type: TextObjectType,
     pub user_id: Option<i64>,
     pub href: Option<String>,
 }
