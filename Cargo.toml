@@ -1,6 +1,6 @@
 [package]
 name = "tgchp"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 description = "Telegram Chat History Parser."
 keywords = ["telegram", "chat-history", "parser"]
