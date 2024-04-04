@@ -63,7 +63,7 @@ pub enum Action {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum Text {
+pub enum TextEntity {
     String(String),
     Object(TextObject),
 }
@@ -80,7 +80,7 @@ pub struct ServiceMessage {
     pub actor_id: String,
     pub action: Action,
     pub text: String,
-    pub text_entities: Vec<Text>,
+    pub text_entities: Vec<TextEntity>,
     pub message_id: Option<i64>,
     pub title: Option<String>,
     pub photo: Option<String>,
@@ -117,9 +117,9 @@ pub struct Poll {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum MessageText {
-    Single(String),
-    Multiple(Vec<Text>),
+pub enum Text {
+    Plain(String),
+    Rich(Vec<TextEntity>),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -133,8 +133,8 @@ pub struct Message {
     pub edited_unixtime: Option<String>,
     pub from: Option<String>,
     pub from_id: String,
-    pub text: MessageText,
-    pub text_entities: Vec<Text>,
+    pub text: Text,
+    pub text_entities: Vec<TextEntity>,
     pub forwared_from: Option<String>,
     pub saved_from: Option<String>,
     pub reply_to_message_id: Option<i64>,
