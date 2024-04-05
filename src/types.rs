@@ -13,6 +13,7 @@ pub enum MessageType {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+#[non_exhaustive]
 pub enum TextObjectType {
     BankCard,
     Blockquote,
@@ -46,17 +47,23 @@ pub struct TextObject {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+#[non_exhaustive]
 pub enum Action {
     BoostApply,
+    CreateChannel,
+    DeleteGroupPhoto,
     EditGroupPhoto,
     EditGroupTitle,
     GroupCall,
     GroupCallScheduled,
     InviteMembers,
     InviteToGroupCall,
+    JoinGroupByLink,
     MigrateFromGroup,
     PinMessage,
     RemoveMembers,
+    ScoreInGame,
+    SetMessagesTtl,
     TopicCreated,
     TopicEdit,
 }
@@ -159,8 +166,11 @@ pub struct Message {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+#[non_exhaustive]
 pub enum ChatHistoryType {
+    PrivateSupergroup,
     PublicSupergroup,
+    PublicChannel,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
