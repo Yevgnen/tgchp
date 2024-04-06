@@ -54,6 +54,7 @@ pub enum Action {
     DeleteGroupPhoto,
     EditGroupPhoto,
     EditGroupTitle,
+    GiveawayLaunch,
     GroupCall,
     GroupCallScheduled,
     InviteMembers,
