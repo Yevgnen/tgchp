@@ -85,7 +85,7 @@ pub struct ServiceMessage {
     pub date: NaiveDateTime,
     pub date_unixtime: String,
     pub actor: Option<String>,
-    pub actor_id: String,
+    pub actor_id: Option<String>,
     pub action: Action,
     pub text: String,
     pub text_entities: Vec<TextEntity>,
