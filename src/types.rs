@@ -61,6 +61,7 @@ pub enum Action {
     InviteMembers,
     InviteToGroupCall,
     JoinGroupByLink,
+    JoinGroupByRequest,
     MigrateFromGroup,
     PinMessage,
     RemoveMembers,
